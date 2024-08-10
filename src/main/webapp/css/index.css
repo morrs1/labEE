@@ -1,0 +1,25 @@
+.menu-list{
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-list li {
+    border: 2px solid #000; /* Рамка */
+    width: 30%; /* Ширина рамки 30% от родительского блока */
+    margin: 10px auto; /* Отступы сверху и снизу, центрирование по горизонтали */
+    padding: 10px; /* Внутренние отступы */
+    text-align: center; /* Центрирование текста внутри элемента списка */
+    border-radius: 5px;
+}
+
+.centered-div {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Сдвиг вниз на 50% от высоты окна */
+    left: 50%; /* Сдвиг вправо на 50% от ширины окна */
+    transform: translate(-50%, -50%); /* Сдвиг обратно на половину ширины и высоты блока */
+    width: 500px; /* Ширина блока */
+    height: 400px; /* Высота блока */
+    background-color: lightblue; /* Цвет фона */
+    text-align: center; /* Выравнивание текста по центру */
+    border: 1px solid #000; /* Рамка */
+}
