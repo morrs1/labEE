@@ -12,8 +12,8 @@
         <p id="welcome" class="subtitle"></p>
         <div>
             <ul class="menu-list">
-                <li id="signItem"><a>Вход</a></li>
-                <li><a href="hello-servlet">Статистика</a></li>
+                <li id="signItem"><a href="auth-page">Вход</a></li>
+                <li><a>Статистика</a></li>
                 <li><a>Котировки Валют</a></li>
                 <li id="logoutItem"><a>Выйти</a></li>
             </ul>
