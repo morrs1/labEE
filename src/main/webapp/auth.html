@@ -2,9 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>AuthPage</title>
 </head>
 <body>
-<p>AuthPage</p>
+<div class="columns is-vcentered">
+    <div class="column"></div>
+
+    <div class="column is-3">
+        <form class="box">
+
+            <div class="tabs is-toggle">
+                <ul>
+                    <li id="signInToggle" class="is-active"><a><span>SignIn</span></a></li>
+                    <li id="signUpToggle"><a><span>SignUp</span></a></li>
+                </ul>
+            </div>
+
+
+            <article id="errorBox" class="message is-warning is-hidden">
+                <div class="message-header">
+                    <p>Ошибка</p>
+                </div>
+                <div id="errorMessageBox" class="message-body"></div>
+            </article>
+
+
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <label>
+                        <input id="username" class="input" type="text" placeholder="e.g. User">
+                    </label>
+                </div>
+            </div>
+
+            <div id="firstnameField" class="field is-hidden">
+                <label class="label">FirstName</label>
+                <div class="control">
+                    <label>
+                        <input id="firstname" class="input" type="text" placeholder="e.g. Nikita">
+                    </label>
+                </div>
+            </div>
+
+            <div id="lastnameField" class="field is-hidden">
+                <label class="label">LastName</label>
+                <div class="control">
+                    <label>
+                        <input id="lastname" class="input" type="text" placeholder="e.g. Boyarshinov">
+                    </label>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <label>
+                        <input id="password" class="input" type="password" placeholder="********">
+                    </label>
+                </div>
+            </div>
+            <button id="signBtn" class="button is-success ">
+                Sign in
+            </button>
+        </form>
+    </div>
+
+    <div class="column"></div>
+</div>
 </body>
 </html>
