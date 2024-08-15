@@ -6,12 +6,12 @@
 </head>
 <body>
 <div>
-    <form action="/">
+    <form action="/auth" method="get">
         <div>
             <label>Username</label>
             <div>
                 <label>
-                    <input id="username" type="text" placeholder="e.g. User">
+                    <input name="username" type="text" placeholder="e.g. User" required>
                 </label>
             </div>
         </div>
@@ -20,7 +20,7 @@
             <label>FirstName</label>
             <div>
                 <label>
-                    <input id="firstname" type="text" placeholder="e.g. Egor">
+                    <input name="firstname" type="text" placeholder="e.g. Egor" required>
                 </label>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <label>LastName</label>
             <div>
                 <label>
-                    <input id="lastname" type="text" placeholder="e.g. Grishkov">
+                    <input name="lastname" type="text" placeholder="e.g. Grishkov" required>
                 </label>
             </div>
         </div>
@@ -38,7 +38,7 @@
             <label>Password</label>
             <div>
                 <label>
-                    <input id="password" type="password" placeholder="********">
+                    <input name="password" type="password" placeholder="********" required>
                 </label>
             </div>
         </div>
