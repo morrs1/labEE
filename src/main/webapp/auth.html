@@ -5,74 +5,47 @@
     <title>AuthPage</title>
 </head>
 <body>
-<div class="columns is-vcentered">
-    <div class="column"></div>
-
-    <div class="column is-3">
-        <form action="/" class="box">
-
-            <div class="tabs is-toggle">
-                <ul>
-                    <li id="signInToggle" class="is-active"><a><span>SignIn</span></a></li>
-                    <li id="signUpToggle"><a><span>SignUp</span></a></li>
-                </ul>
+<div>
+    <form action="/">
+        <div>
+            <label>Username</label>
+            <div>
+                <label>
+                    <input id="username" type="text" placeholder="e.g. User">
+                </label>
             </div>
+        </div>
 
-
-            <article id="errorBox" class="message is-warning is-hidden">
-                <div class="message-header">
-                    <p>Ошибка</p>
-                </div>
-                <div id="errorMessageBox" class="message-body"></div>
-            </article>
-
-
-            <div class="field">
-                <label class="label">Username</label>
-                <div class="control">
-                    <label>
-                        <input id="username" class="input" type="text" placeholder="e.g. User">
-                    </label>
-                </div>
+        <div id="firstnameField">
+            <label>FirstName</label>
+            <div>
+                <label>
+                    <input id="firstname" type="text" placeholder="e.g. Egor">
+                </label>
             </div>
+        </div>
 
-            <div id="firstnameField" class="field is-hidden">
-                <label class="label">FirstName</label>
-                <div class="control">
-                    <label>
-                        <input id="firstname" class="input" type="text" placeholder="e.g. Egor">
-                    </label>
-                </div>
+        <div id="lastnameField">
+            <label>LastName</label>
+            <div>
+                <label>
+                    <input id="lastname" type="text" placeholder="e.g. Grishkov">
+                </label>
             </div>
+        </div>
 
-            <div id="lastnameField" class="field is-hidden">
-                <label class="label">LastName</label>
-                <div class="control">
-                    <label>
-                        <input id="lastname" class="input" type="text" placeholder="e.g. Grishkov">
-                    </label>
-                </div>
+        <div>
+            <label>Password</label>
+            <div>
+                <label>
+                    <input id="password" type="password" placeholder="********">
+                </label>
             </div>
+        </div>
 
-            <div class="field">
-                <label class="label">Password</label>
-                <div class="control">
-                    <label>
-                        <input id="password" class="input" type="password" placeholder="********">
-                    </label>
-                </div>
-            </div>
-            <button id="signBtn" class="button is-success ">
-                Sign in
-            </button>
-            <input type="submit" value="JJJ">
-        </form>
-    </div>
-    <button id="signButton">sss</button>
-    <label id="response"></label>
-
-    <div class="column"></div>
+        <input type="submit" value="Submit">
+    </form>
 </div>
-<script src = js/auth.js></script>
+
 </body>
 </html>
