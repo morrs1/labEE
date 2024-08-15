@@ -11,6 +11,7 @@ public class AuthPageServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("auth.html").forward(request, response);
+
     }
 
     public void destroy() {

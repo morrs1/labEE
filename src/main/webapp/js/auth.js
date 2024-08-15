@@ -1,16 +1,17 @@
 let signButton = document.getElementById("signButton")
 
-signButton.addEventListener("click", function () {
-    console.log("fdfs");
-    fetch("index.jsp", {method: "GET"}).then(function (response) {
-        if (response.ok) {
-            window.location.href = "/";
-            console.log("aboba")
-        } else {
-            response.text().then(function (text) {
-                console.log(text);
-                console.log("ne aboba")
-            });
-        }
-    });
-});
+
+async function signButtonClicked() {
+    fetch('/auth-page') // Отправляем GET-запрос
+        .then(response => {
+            return response.text(); // Преобразуем ответ в текст
+        })
+        .then(data => {
+            document.getElementById("response").innerText = data; // Отображаем ответ на странице
+        })
+        .catch(error => {
+            console.error('Произошла ошибка:', error);
+        });
+}
+
+signButton.addEventListener('click', signButtonClicked, false)
