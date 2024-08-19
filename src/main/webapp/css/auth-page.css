@@ -328,55 +328,59 @@ video {
     --tw-contain-paint: ;
     --tw-contain-style: ;
 }
-#menu :is(.mb-4) {
-    margin-bottom: 24px;
+#main-div :is(.mb-4) {
+    margin-bottom: 16px;
 }
-#menu :is(.flex) {
-    display: flex;
+#main-div :is(.mt-1) {
+    margin-top: 4px;
 }
-#menu :is(.min-h-\[400px\]) {
+#main-div :is(.block) {
+    display: block;
+}
+#main-div :is(.min-h-\[400px\]) {
     min-height: 400px;
 }
-#menu :is(.w-\[400px\]) {
+#main-div :is(.w-\[400px\]) {
     width: 400px;
 }
-#menu :is(.flex-col) {
-    flex-direction: column;
+#main-div :is(.w-full) {
+    width: 100%;
 }
-#menu :is(.space-y-4 > :not([hidden]) ~ :not([hidden])) {
+#main-div :is(.space-y-4 > :not([hidden]) ~ :not([hidden])) {
     --tw-space-y-reverse: 0;
-    margin-bottom: calc(24px * var(--tw-space-y-reverse));
-    margin-top: calc(24px * (1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(16px * var(--tw-space-y-reverse));
+    margin-top: calc(16px * (1 - var(--tw-space-y-reverse)));
 }
-#menu :is(.rounded-full) {
-    border-radius: 9999px;
-}
-#menu :is(.rounded-lg) {
+#main-div :is(.rounded-lg) {
     border-radius: 10px;
 }
-#menu :is(.bg-neutral-50) {
+#main-div :is(.rounded-md) {
+    border-radius: 7.5px;
+}
+#main-div :is(.border-gray-300) {
+    --tw-border-opacity: 1;
+    border-color: rgb(209 213 219 / var(--tw-border-opacity));
+}
+#main-div :is(.bg-neutral-50) {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-#menu :is(.bg-primary) {
+#main-div :is(.bg-primary) {
     --tw-bg-opacity: 1;
     background-color: rgb(250 91 48 / var(--tw-bg-opacity));
 }
-#menu :is(.p-6) {
-    padding: 36px;
+#main-div :is(.p-6) {
+    padding: 24px;
 }
-#menu :is(.px-4) {
-    padding-left: 24px;
-    padding-right: 24px;
+#main-div :is(.px-4) {
+    padding-left: 16px;
+    padding-right: 16px;
 }
-#menu :is(.py-2) {
-    padding-bottom: 12px;
-    padding-top: 12px;
+#main-div :is(.py-2) {
+    padding-bottom: 8px;
+    padding-top: 8px;
 }
-#menu :is(.text-center) {
-    text-align: center;
-}
-#menu :is(.font-title) {
+#main-div :is(.font-title) {
     font-family:
             Lato,
             ui-sans-serif,
@@ -387,27 +391,41 @@ video {
             Segoe UI Symbol,
             Noto Color Emoji;
 }
-#menu :is(.text-xl) {
-    font-size: 20px;
-    line-height: 28px;
+#main-div :is(.text-2xl) {
+    font-size: 24px;
+    line-height: 32px;
 }
-#menu :is(.text-white) {
+#main-div :is(.text-sm) {
+    font-size: 14px;
+    line-height: 20px;
+}
+#main-div :is(.font-medium) {
+    font-weight: 500;
+}
+#main-div :is(.text-white) {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-#menu :is(.shadow) {
-    --tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-    --tw-shadow-colored: 0 1px 3px 0,
-    0 1px 2px -1px;
+#main-div :is(.shadow-lg) {
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --tw-shadow-colored: 0 10px 15px,
+    0 4px 6px -4px;
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-#menu {
+#main-div :is(.shadow-sm) {
+    --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --tw-shadow-colored: 0 1px 2px 0;
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+#main-div {
     font-family: Open Sans !important;
     font-size: 16px !important;
     line-height: 24px !important;
 }
-#menu :is(.bg-neutral-50) {
+#main-div :is(.bg-neutral-50) {
     color: rgba(0, 0, 0, 0.9) !important;
 }
 
