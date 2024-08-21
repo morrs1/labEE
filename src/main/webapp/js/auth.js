@@ -1,22 +1,23 @@
-let signButton = document.getElementById("signButton")
+document.getElementById('auth-form').addEventListener('submit', function (event) {
+    event.preventDefault();
 
+    const formData = new FormData(this);
 
-async function signButtonClicked() {
-    try {
-        const response = await fetch("/auth", {
-            method: "GET",
-        });
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
 
-        if (response.ok) {
-            // Если ответ успешный (статус 2xx)
+    console.log(JSON.stringify(data));
+    fetch('/auth', {
+        method: 'POST',
+        body: JSON.stringify(data),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Сеть ответила с ошибкой');
+            }
             window.location.href = response.url;
-        } else {
-            // Если ответ неуспешный
-            console.error("Произошла ошибка при отправке формы.");
-        }
-    } catch (error) {
-        console.error("Ошибка при выполнении запроса:", error);
-    }
-}
 
-signButton.addEventListener('click', signButtonClicked, false)
+        })
+});
