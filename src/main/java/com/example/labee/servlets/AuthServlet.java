@@ -11,11 +11,11 @@ import java.io.IOException;
 public class AuthServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println(request.getParameter("username"));
+        System.out.println(request.getParameter("login"));
         System.out.println(request.getParameter("firstname"));
         System.out.println(request.getParameter("lastname"));
         System.out.println(request.getParameter("password"));
-        response.sendRedirect("/auth-page");
+        response.sendRedirect("/");
     }
 
 }
