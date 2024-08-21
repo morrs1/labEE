@@ -3,7 +3,7 @@ let signButton = document.getElementById("signButton")
 
 async function signButtonClicked() {
     try {
-        const response = await fetch("http://localhost:8080/auth", {
+        const response = await fetch("/auth", {
             method: "GET",
         });
 
