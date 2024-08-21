@@ -15,7 +15,7 @@ public class AuthServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Map<String, String> parameterMap = JSONParser.parse(request.getReader());
         parameterMap.forEach((k, v) -> System.out.println(k + " " + v));
-        response.sendRedirect("/");
+        response.sendRedirect("/mainPage");
     }
 
 }
