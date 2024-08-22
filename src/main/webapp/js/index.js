@@ -16,12 +16,12 @@ function checkVerify() {
 function updatePage() {
     checkVerify()
     if (verify) {
-        signInButton.style.display = 'none';
-        signOutButton.style.display = 'block';
+        signInButton.setAttribute("hidden", "true");
+        signOutButton.removeAttribute("hidden");
     } else {
-        signInButton.style.display = 'block';
-        signOutButton.style.display = 'none';
+        signInButton.removeAttribute("hidden")
+        signOutButton.setAttribute("hidden", "true");
     }
 }
 
-window.onload = updatePage;
+updatePage()
