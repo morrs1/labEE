@@ -1,14 +1,14 @@
 <root>
     <user>
         <login>user1</login>
-        <first-name>Егор</first-name>
-        <last-name>Гришков</last-name>
-        <password>pass123</password>
+        <firstName>Егор</firstName>
+        <lastName>Гришков</lastName>
+        <hashedPassword>pass123</hashedPassword>
     </user>
     <user>
         <login>user2</login>
-        <first-name>Данил</first-name>
-        <last-name>Ковалев</last-name>
-        <password>pass12345</password>
+        <firstName>Данил</firstName>
+        <lastName>Ковалев</lastName>
+        <hashedPassword>pass12345</hashedPassword>
     </user>
 </root>

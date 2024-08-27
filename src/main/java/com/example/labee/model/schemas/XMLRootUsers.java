@@ -1,17 +1,22 @@
 package com.example.labee.model.schemas;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
-@AllArgsConstructor
-public class XMLRootUsers {
+@NoArgsConstructor
+@Setter
+@ToString
+public class XMLRootUsers implements XMLDAO {
+    @JacksonXmlElementWrapper(useWrapping = false)
+    @JacksonXmlProperty(localName = "user")
     private List<User> usersList;
 
     public User getByLogin() {
-        return new User(null, null, null, null);
+        return null;
     }
 
 }

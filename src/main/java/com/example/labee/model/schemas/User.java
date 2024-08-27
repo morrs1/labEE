@@ -1,10 +1,11 @@
 package com.example.labee.model.schemas;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
-@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@ToString
 public class User {
     private String login;
     private String firstName;
