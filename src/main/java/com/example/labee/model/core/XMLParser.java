@@ -1,7 +1,6 @@
 package com.example.labee.model.core;
 
 import com.example.labee.model.schemas.XMLDAO;
-import com.example.labee.model.schemas.XMLRootUsers;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import java.io.File;
