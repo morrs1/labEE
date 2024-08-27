@@ -8,9 +8,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class XMLParser {
-    public static XMLDAO parseXML(File xmlFile, Class<XMLRootUsers> xmlDAOClass) {
+    public static XMLDAO parseXML(File xmlFile, XMLDAO xmlDAO) {
         try {
-            return new XmlMapper().readValue(xmlFile, xmlDAOClass);
+            return new XmlMapper().readValue(xmlFile, xmlDAO.getClass());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
