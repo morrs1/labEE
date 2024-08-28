@@ -10,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @ToString
-public class XMLRootUsers implements XMLDAO {
+public class XMLUsers implements XMLDAO {
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "user")
     private List<User> usersList;
