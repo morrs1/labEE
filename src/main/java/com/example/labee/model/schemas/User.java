@@ -5,6 +5,7 @@ import lombok.*;
 
 @Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @ToString
 public class User implements XMLDAO {

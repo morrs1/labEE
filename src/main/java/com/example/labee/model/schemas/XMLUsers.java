@@ -1,9 +1,11 @@
 package com.example.labee.model.schemas;
 
+import com.example.labee.model.core.helpers.XMLParser;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.*;
 
+import java.io.File;
 import java.util.List;
 
 @Getter
@@ -16,7 +18,6 @@ public class XMLUsers implements XMLDAO {
     private List<User> usersList;
 
     public User getByLogin(String login) {
-        return null;
+        return usersList.stream().filter(user -> user.getLogin().equals(login)).findFirst().orElse(null);
     }
-
 }
