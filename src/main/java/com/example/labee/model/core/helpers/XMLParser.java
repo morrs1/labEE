@@ -1,4 +1,4 @@
-package com.example.labee.model.core;
+package com.example.labee.model.core.helpers;
 
 import com.example.labee.model.schemas.XMLDAO;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;

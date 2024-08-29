@@ -1,4 +1,4 @@
-package com.example.labee.model.core;
+package com.example.labee.model.core.helpers;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

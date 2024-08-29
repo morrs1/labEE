@@ -1,4 +1,4 @@
-package com.example.labee.model.core;
+package com.example.labee.model.core.helpers;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 

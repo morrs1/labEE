@@ -1,6 +1,6 @@
 package com.example.labee.servlets;
 
-import com.example.labee.model.core.JSONParser;
+import com.example.labee.model.core.helpers.JSONParser;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
