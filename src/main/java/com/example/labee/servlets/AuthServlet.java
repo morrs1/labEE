@@ -1,12 +1,8 @@
 package com.example.labee.servlets;
 
 import com.example.labee.model.core.Auth;
-import com.example.labee.model.core.helpers.HashPassword;
 import com.example.labee.model.core.helpers.JSONParser;
-import com.example.labee.model.core.helpers.XMLParser;
 import com.example.labee.model.schemas.User;
-import com.example.labee.model.schemas.XMLUsers;
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;

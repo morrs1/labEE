@@ -7,8 +7,8 @@ import com.example.labee.model.schemas.XMLUsers;
 import java.io.File;
 
 public class Auth {
-    private XMLUsers users;
-    private User user;
+    private final XMLUsers users;
+    private final User user;
 
     public Auth(User user, File xmlFile) {
         this.user = user;
