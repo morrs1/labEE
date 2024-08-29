@@ -11,4 +11,10 @@
         <lastName>Ковалев</lastName>
         <hashedPassword>pass12345</hashedPassword>
     </user>
+    <user>
+        <login>dads</login>
+        <firstName>dads</firstName>
+        <lastName>dads</lastName>
+        <hashedPassword>dddd</hashedPassword>
+    </user>
 </XMLUsers>
