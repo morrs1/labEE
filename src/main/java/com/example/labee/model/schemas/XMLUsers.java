@@ -15,7 +15,7 @@ public class XMLUsers implements XMLDAO {
     @JacksonXmlProperty(localName = "user")
     private List<User> usersList;
 
-    public User getByLogin() {
+    public User getByLogin(String login) {
         return null;
     }
 

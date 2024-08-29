@@ -1,4 +1,4 @@
-<root>
+<XMLUsers>
     <user>
         <login>user1</login>
         <firstName>Егор</firstName>
@@ -11,4 +11,4 @@
         <lastName>Ковалев</lastName>
         <hashedPassword>pass12345</hashedPassword>
     </user>
-</root>
+</XMLUsers>
