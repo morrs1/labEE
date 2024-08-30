@@ -11,7 +11,7 @@ import java.io.IOException;
 public class XMLParser {
     public static XMLDAO deserialize(File xmlFile, XMLDAO xmlDAO) {
         try {
-            return new XmlMapper().readValue(xmlFile, XMLUsers.class);
+            return new XmlMapper().readValue(xmlFile, xmlDAO.getClass());
         } catch (IOException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException(e);
