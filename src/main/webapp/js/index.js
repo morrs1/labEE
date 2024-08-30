@@ -1,6 +1,7 @@
 let verify = false;
 let signInButton = document.getElementById("signInButton")
 let signOutButton = document.getElementById("signOutButton")
+let registrationButton = document.getElementById("registrationButton")
 
 function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -18,9 +19,11 @@ function updatePage() {
     if (verify) {
         signInButton.setAttribute("hidden", "true");
         signOutButton.removeAttribute("hidden");
+        registrationButton.setAttribute("hidden", "true")
     } else {
         signInButton.removeAttribute("hidden")
         signOutButton.setAttribute("hidden", "true");
+        registrationButton.removeAttribute("hidden")
     }
 }
 
