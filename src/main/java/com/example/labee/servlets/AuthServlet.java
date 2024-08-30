@@ -22,8 +22,6 @@ public class AuthServlet extends HttpServlet {
                 new Auth(
                         new User(
                                 parameterMap.get("login"),
-                                parameterMap.get("firstname"),
-                                parameterMap.get("lastname"),
                                 parameterMap.get("password")
                         ),
                         new File(

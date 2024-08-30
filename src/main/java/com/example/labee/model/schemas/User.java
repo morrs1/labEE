@@ -12,12 +12,6 @@ public class User implements XMLDAO {
     @JacksonXmlProperty(localName = "login")
     private String login;
 
-    @JacksonXmlProperty(localName = "firstName")
-    private String firstName;
-
-    @JacksonXmlProperty(localName = "lastName")
-    private String lastName;
-
     @JacksonXmlProperty(localName = "hashedPassword")
     private String hashedPassword;
 }
