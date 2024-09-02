@@ -1,11 +1,10 @@
 package com.example.labee.model.schemas;
 
-import com.example.labee.model.core.helpers.XMLParser;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.*;
 
-import java.io.File;
+
 import java.util.List;
 
 @Getter

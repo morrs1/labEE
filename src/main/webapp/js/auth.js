@@ -14,6 +14,7 @@ document.getElementById('auth-form').addEventListener('submit', function (event)
         body: JSON.stringify(data),
     })
         .then(response => {
+            alert(JSON.stringify(data))
             if (!response.ok) {
                 throw new Error('Сеть ответила с ошибкой');
             }
