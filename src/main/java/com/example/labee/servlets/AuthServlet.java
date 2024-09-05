@@ -33,29 +33,20 @@ public class AuthServlet extends HttpServlet {
 
                 );
 
-        Integer logInAttempts =(Integer) request.getSession().getAttribute("logInAttempts");
+        Integer logInAttempts = (Integer) request.getSession().getAttribute("logInAttempts");
         if (logInAttempts == null) {
             logInAttempts = 0; // Инициализация счетчика попыток
         }
         if (auth.logIn()) {
             Cookie verifyCookie = new Cookie("verify", "true");
             request.getSession().removeAttribute("logInAttempts");
-            response.getWriter().write("Login successful!");
             verifyCookie.setPath("/");
             response.addCookie(verifyCookie);
             response.sendRedirect("/");
             System.out.println("успех");
-        }else {
+        } else {
             logInAttempts++;
             request.getSession().setAttribute("logInAttempts", logInAttempts);
-
-            if (logInAttempts > 3) {
-                System.out.println("Было превышено количество попыток входа: " + logInAttempts);
-                response.getWriter().write("Слишком много неудачных попыток входа. Попробуйте позже.");
-            } else {
-                response.getWriter().write("Неверное имя пользователя или пароль. Попытка " + logInAttempts);
-                System.out.println("Попыток входа: " + logInAttempts);
-            }
             response.sendRedirect("/auth-page");
             System.out.println("не успех");
         }
