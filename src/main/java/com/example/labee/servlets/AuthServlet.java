@@ -37,19 +37,24 @@ public class AuthServlet extends HttpServlet {
         if (logInAttempts == null) {
             logInAttempts = 0; // Инициализация счетчика попыток
         }
-        if (auth.logIn()) {
-            Cookie verifyCookie = new Cookie("verify", "true");
-            request.getSession().removeAttribute("logInAttempts");
-            verifyCookie.setPath("/");
-            response.addCookie(verifyCookie);
+        if(logInAttempts > 3){
             response.sendRedirect("/");
-            System.out.println("успех");
-        } else {
-            logInAttempts++;
-            request.getSession().setAttribute("logInAttempts", logInAttempts);
-            response.sendRedirect("/auth-page");
-            System.out.println("не успех");
+        }else{
+            if (auth.logIn()) {
+                Cookie verifyCookie = new Cookie("verify", "true");
+                request.getSession().removeAttribute("logInAttempts");
+                verifyCookie.setPath("/");
+                response.addCookie(verifyCookie);
+                response.sendRedirect("/");
+                System.out.println("успех");
+            } else {
+                logInAttempts++;
+                request.getSession().setAttribute("logInAttempts", logInAttempts);
+                response.sendRedirect("/auth-page");
+                System.out.println("не успех");
+            }
         }
+
 
 
     }
