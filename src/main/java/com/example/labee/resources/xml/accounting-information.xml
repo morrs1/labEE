@@ -11,4 +11,8 @@
         <login>dads</login>
         <hashedPassword>dddd</hashedPassword>
     </user>
+    <user>
+        <login>111</login>
+        <hashedPassword>$2a$12$h7Yn/kg6MepmFMaJvegnUe4f6cRwwWO.ATe9sQpDeKQceluX/PZdu</hashedPassword>
+    </user>
 </XMLUsers>
