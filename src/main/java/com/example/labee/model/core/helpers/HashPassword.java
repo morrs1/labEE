@@ -1,14 +1,16 @@
 package com.example.labee.model.core.helpers;
 
-import at.favre.lib.crypto.bcrypt.BCrypt;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class HashPassword {
+    private static final String FIXED_SALT = "$2a$12$abcdefghijklmnopqrstuv";
+
     public static String hashPassword(String password) {
-        return BCrypt.withDefaults().hashToString(12, password.toCharArray());
+        return BCrypt.hashpw(password, FIXED_SALT);
     }
 
     public static boolean checkPassword(String password, String hashed) {
-        return BCrypt.verifyer().verify(password.toCharArray(), hashed).verified;
+        return BCrypt.checkpw(password, hashed);
     }
 
 }

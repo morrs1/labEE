@@ -1,6 +1,7 @@
 package com.example.labee.servlets;
 
 import com.example.labee.model.core.Auth;
+import com.example.labee.model.core.helpers.HashPassword;
 import com.example.labee.model.core.helpers.JSONParser;
 import com.example.labee.model.schemas.User;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,7 +23,7 @@ public class AuthServlet extends HttpServlet {
                 new Auth(
                         new User(
                                 parameterMap.get("login"),
-                                parameterMap.get("password")
+                                HashPassword.hashPassword(parameterMap.get("password"))
                         ),
                         new File(
                                 new File(

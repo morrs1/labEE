@@ -4,19 +4,11 @@
         <hashedPassword>pass123</hashedPassword>
     </user>
     <user>
-        <login>user2</login>
-        <hashedPassword>pass12345</hashedPassword>
+        <login>000</login>
+        <hashedPassword>$2a$12$abcdefghijklmnopqrstuuD/88GNU.RIV8m0ocRsyvqleC.0S8Q4u</hashedPassword>
     </user>
     <user>
-        <login>dads</login>
-        <hashedPassword>dddd</hashedPassword>
-    </user>
-    <user>
-        <login>111</login>
-        <hashedPassword>$2a$12$h7Yn/kg6MepmFMaJvegnUe4f6cRwwWO.ATe9sQpDeKQceluX/PZdu</hashedPassword>
-    </user>
-    <user>
-        <login>12</login>
-        <hashedPassword>$2a$12$rqPuotR/T1GoafwOIv7kfOCY.k.T3CAc93c3bZsCyLelnYfGAq7di</hashedPassword>
+        <login>123</login>
+        <hashedPassword>$2a$12$abcdefghijklmnopqrstuua60oqndqwPu2tmWuGI8U8eQZvjU2ISu</hashedPassword>
     </user>
 </XMLUsers>
