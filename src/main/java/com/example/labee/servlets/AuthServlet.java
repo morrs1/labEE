@@ -38,9 +38,10 @@ public class AuthServlet extends HttpServlet {
         if (logInAttempts == null) {
             logInAttempts = 0; // Инициализация счетчика попыток
         }
-        if(logInAttempts > 3){
+        System.out.println(logInAttempts);
+        if (logInAttempts >= 3) {
             response.sendRedirect("/");
-        }else{
+        } else {
             if (auth.logIn()) {
                 Cookie verifyCookie = new Cookie("verify", "true");
                 request.getSession().removeAttribute("logInAttempts");
@@ -55,7 +56,6 @@ public class AuthServlet extends HttpServlet {
                 System.out.println("не успех");
             }
         }
-
 
 
     }
