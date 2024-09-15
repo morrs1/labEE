@@ -6,13 +6,13 @@ import com.example.labee.model.core.helpers.XMLParser;
 import com.example.labee.model.schemas.User;
 import com.example.labee.model.schemas.XMLUsers;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Map;
 
 
@@ -43,6 +43,10 @@ public class RegistrationServlet extends HttpServlet {
                     )
             );
             XMLParser.serialize(xmlFile, users);
+            response.addCookie(new Cookie("verify", "true"));
+            response.sendRedirect("/");
+        } else {
+            response.sendRedirect("/registration-page");
         }
         System.out.println(users.getUsersList());
     }
