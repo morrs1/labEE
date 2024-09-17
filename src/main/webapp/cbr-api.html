@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма выбора</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        select, input {
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Выбор валюты или драгоценного металла</h1>
+<form id="selectionForm">
+    <label for="category">Выберите категорию:</label>
+    <select id="category" onchange="updateOptions()">
+        <option value="">--Выберите--</option>
+        <option value="currencies">Валюты</option>
+        <option value="metals">Драгоценные металлы</option>
+    </select>
+
+    <label for="item">Выберите:</label>
+    <select id="item">
+        <option value="">--Сначала выберите категорию--</option>
+    </select>
+
+    <label for="startDate">Дата начала:</label>
+    <input type="date" id="startDate" required>
+
+    <label for="endDate">Дата окончания:</label>
+    <input type="date" id="endDate" required>
+
+    <button type="submit">Enter</button>
+</form>
+
+<script>
+    function updateOptions() {
+        const category = document.getElementById("category").value;
+        const itemSelect = document.getElementById("item");
+        itemSelect.innerHTML = "";
+
+        if (category === "currencies") {
+            const currencies = ["Доллар", "Евро", "Фунт"];
+            currencies.forEach(currency => {
+                const option = document.createElement("option");
+                option.value = currency;
+                option.textContent = currency;
+                itemSelect.appendChild(option);
+            });
+        } else if (category === "metals") {
+            const metals = ["Золото", "Серебро", "Платина", "Палладий"];
+            metals.forEach(metal => {
+                const option = document.createElement("option");
+                option.value = metal;
+                option.textContent = metal;
+                itemSelect.appendChild(option);
+            });
+        } else {
+            const option = document.createElement("option");
+            option.value = "";
+            option.textContent = "--Сначала выберите категорию--";
+            itemSelect.appendChild(option);
+        }
+    }
+
+    document.getElementById("selectionForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const category = document.getElementById("category").value;
+        const item = document.getElementById("item").value;
+        const startDate = document.getElementById("startDate").value;
+        const endDate = document.getElementById("endDate").value;
+        const data = {
+            category: category,
+            item: item,
+            startDate: startDate,
+            endDate: endDate
+        };
+
+        fetch('http://localhost:8080/cbr-api', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Сеть ответила с ошибкой: ' + response.status);
+                }
+                return response.text(); // Если ожидается XML, используйте text()
+            })
+            .then(data => {
+                console.log('Успех:', data);
+                displayXML(data)
+                // Здесь вы можете обработать полученные данные (например, отобразить их на странице)
+            })
+            .catch((error) => {
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка: ' + error.message);
+            });
+    });
+
+    function displayXML(xmlString) {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+        // Находим или создаем элемент для отображения
+        let outputDiv = document.getElementById("outputDiv");
+        if (!outputDiv) {
+            outputDiv = document.createElement("div");
+            outputDiv.id = "outputDiv"; // Устанавливаем ID для дальнейшего поиска
+            outputDiv.style.whiteSpace = "pre-wrap"; // Сохраняем форматирование
+            document.body.appendChild(outputDiv);
+        } else {
+            outputDiv.innerHTML = ""; // Очищаем содержимое перед добавлением нового
+        }
+        // Добавляем новое содержимое
+        outputDiv.textContent = new XMLSerializer().serializeToString(xmlDoc); // Преобразуем XML в строку
+    }
+</script>
+
+</body>
+</html>
