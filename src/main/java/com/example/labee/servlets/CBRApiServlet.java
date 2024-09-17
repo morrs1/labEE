@@ -1,6 +1,7 @@
 package com.example.labee.servlets;
 
 import com.example.labee.model.core.helpers.JSONParser;
+import com.example.labee.model.core.helpers.RequestFormaterForCBR;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +22,7 @@ public class CBRApiServlet extends HttpServlet {
         Map<String, String> parameterMap = JSONParser.parse(request.getReader());
         System.out.println(parameterMap);
 
-        String apiUrl = "https://www.cbr.ru/scripts/xml_metall.asp?date_req1=02/07/2021&date_req2=01/08/2021";
+        String apiUrl = RequestFormaterForCBR.format(parameterMap);
         // Создание HttpClient
         HttpClient client = HttpClient.newHttpClient();
         // Создание запроса
