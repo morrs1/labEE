@@ -9,7 +9,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.labee.thirdLab.schemas.AudioFileDAO" %>
 <%@ page import="com.example.labee.thirdLab.schemas.AudioFile" %>
-<%@ page import="com.example.labee.model.core.helpers.XMLParser" %>
 <%@ page import="com.example.labee.thirdLab.model.helpers.DAOCreator" %>
 <%
     AudioFileDAO audioFileDAO = DAOCreator.createAudiFileDAO();
