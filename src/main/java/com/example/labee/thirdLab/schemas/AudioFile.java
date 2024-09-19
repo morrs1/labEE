@@ -8,6 +8,8 @@ import lombok.*;
 @AllArgsConstructor
 @Setter
 public class AudioFile {
+    @JacksonXmlProperty(localName = "id")
+    private String id;
     @JacksonXmlProperty(localName = "name")
     private String name;
     @JacksonXmlProperty(localName = "artist")
