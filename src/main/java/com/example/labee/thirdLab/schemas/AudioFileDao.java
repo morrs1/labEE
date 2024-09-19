@@ -1,6 +1,9 @@
 package com.example.labee.thirdLab.schemas;
 
+
 import com.example.labee.model.schemas.XMLDAO;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,5 +16,7 @@ import java.util.List;
 @Setter
 @ToString
 public class AudioFileDao implements XMLDAO {
+    @JacksonXmlElementWrapper(useWrapping = false)
+    @JacksonXmlProperty(localName = "audioFile")
     List<AudioFile> audioFileList;
 }

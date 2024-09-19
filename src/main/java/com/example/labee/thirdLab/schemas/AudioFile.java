@@ -7,7 +7,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
-@ToString
 public class AudioFile {
     @JacksonXmlProperty(localName = "name")
     private String name;
@@ -15,4 +14,9 @@ public class AudioFile {
     private String artist;
     @JacksonXmlProperty(localName = "genre")
     private String genre;
+
+    @Override
+    public String toString() {
+        return String.format("name: %s, artist: %s, genre: %s", name, artist, genre);
+    }
 }
