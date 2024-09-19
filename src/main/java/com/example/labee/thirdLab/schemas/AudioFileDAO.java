@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Setter
 @ToString
-public class AudioFileDao implements XMLDAO {
+public class AudioFileDAO implements XMLDAO {
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "audioFile")
     List<AudioFile> audioFileList;
