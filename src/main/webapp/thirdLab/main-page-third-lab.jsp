@@ -6,6 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.labee.thirdLab.schemas.AudioFileDAO" %>
+<%@ page import="com.example.labee.thirdLab.schemas.AudioFile" %>
+<%@ page import="com.example.labee.model.core.helpers.XMLParser" %>
+<%@ page import="com.example.labee.thirdLab.model.helpers.DAOCreator" %>
+<%
+    AudioFileDAO audioFileDAO = DAOCreator.createAudiFileDAO();
+    List<AudioFile> audioFiles = audioFileDAO.getAudioFileList();
+%>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -69,6 +78,19 @@
 <%--        <td><a href="delete?id=1">Удалить</a></td>--%>
 <%--    </tr>--%>
     <!-- Добавьте больше строк по мере необходимости -->
+    <%
+        // Генерация строк таблицы для каждого аудио файла
+        for (AudioFile audioFile : audioFiles) {
+    %>
+    <tr>
+        <td><%= audioFile.getName() %></td>
+        <td><%= audioFile.getArtist() %></td>
+        <td><%= audioFile.getGenre() %></td>
+        <td><a href="delete?id=<%= audioFile.getId() %>">Удалить</a></td>
+    </tr>
+    <%
+        }
+    %>
     </tbody>
 </table>
 
