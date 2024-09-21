@@ -19,6 +19,6 @@ public class AudioFile {
 
     @Override
     public String toString() {
-        return String.format("name: %s, artist: %s, genre: %s", name, artist, genre);
+        return String.format("id: %s, name: %s, artist: %s, genre: %s", id, name, artist, genre);
     }
 }
