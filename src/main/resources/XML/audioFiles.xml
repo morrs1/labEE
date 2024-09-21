@@ -1,1 +1,1 @@
-<AudioFileDAO/>
+<AudioFileDAO><audioFile><id>1</id><name>1</name><artist>2</artist><genre>3</genre></audioFile><audioFile><id>2</id><name>1</name><artist>2</artist><genre>3</genre></audioFile><audioFile><id>3</id><name>1</name><artist>2</artist><genre>3</genre></audioFile></AudioFileDAO>

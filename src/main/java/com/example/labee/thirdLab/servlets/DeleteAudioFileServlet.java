@@ -1,6 +1,5 @@
 package com.example.labee.thirdLab.servlets;
 
-import com.example.labee.model.core.helpers.XMLParser;
 import com.example.labee.thirdLab.model.helpers.DAOCreator;
 import com.example.labee.thirdLab.schemas.AudioFileDAO;
 import jakarta.servlet.ServletException;
@@ -20,12 +19,11 @@ public class DeleteAudioFileServlet extends HttpServlet {
         System.out.println(audioFileDAO.getAudioFileList());
         audioFileDAO.deleteAudioFile(request.getParameter("id"));
         System.out.println(audioFileDAO.getAudioFileList());
-        XMLParser.serialize(new File(
-                new File(
-                        getServletContext().getRealPath("/")
-                ).getParentFile().getParentFile().getAbsolutePath()
-                        + "/src/main/resources/XML/audioFiles.xml"
-        ), audioFileDAO);
+        System.out.println(new File(
+                getServletContext().getRealPath("/")
+        ).getParentFile().getParentFile().getAbsolutePath()
+                + "/src/main/resources/XML/audioFiles.xml");
+        new DAOCreator().serialize(audioFileDAO);
         System.out.println("Удаление прошло успешно");
         request.getRequestDispatcher("thirdLab/main-page-third-lab.jsp").forward(request, response);
 

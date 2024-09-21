@@ -10,9 +10,10 @@
 <%@ page import="com.example.labee.thirdLab.schemas.AudioFileDAO" %>
 <%@ page import="com.example.labee.thirdLab.schemas.AudioFile" %>
 <%@ page import="com.example.labee.thirdLab.model.helpers.DAOCreator" %>
+<%@ page import="java.util.ArrayList" %>
 <%
     AudioFileDAO audioFileDAO = new DAOCreator().createAudiFileDAO();
-    List<AudioFile> audioFiles = audioFileDAO.getAudioFileList();
+    List<AudioFile> audioFiles = audioFileDAO.getAudioFileList()!=null ? audioFileDAO.getAudioFileList() : new ArrayList<>();
 %>
 <!DOCTYPE html>
 <html lang="ru">
