@@ -16,8 +16,10 @@ import java.io.IOException;
 public class DeleteAudioFileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        AudioFileDAO audioFileDAO = DAOCreator.createAudiFileDAO();
-        audioFileDAO.deleteAudioFile("2");
+        AudioFileDAO audioFileDAO = new DAOCreator().createAudiFileDAO();
+        System.out.println(audioFileDAO.getAudioFileList());
+        audioFileDAO.deleteAudioFile(request.getParameter("id"));
+        System.out.println(audioFileDAO.getAudioFileList());
         XMLParser.serialize(new File(
                 new File(
                         getServletContext().getRealPath("/")
