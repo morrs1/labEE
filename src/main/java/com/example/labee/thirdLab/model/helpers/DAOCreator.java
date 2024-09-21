@@ -8,10 +8,10 @@ import java.io.InputStream;
 
 public class DAOCreator {
     public static AudioFileDAO createAudiFileDAO(){
-        InputStream inputStream = DAOCreator.class.getClassLoader().getResourceAsStream("XML/audioFiles.xml");
-        if (inputStream == null) {
+        InputStream streamOfAudioFile = DAOCreator.class.getClassLoader().getResourceAsStream("XML/audioFiles.xml");
+        if (streamOfAudioFile == null) {
             throw new RuntimeException("Файл не найден: XML/audioFiles.xml");
         }
-        return (AudioFileDAO) XMLParser.deserialize(inputStream, new AudioFileDAO());
+        return (AudioFileDAO) XMLParser.deserialize(streamOfAudioFile, new AudioFileDAO());
     }
 }

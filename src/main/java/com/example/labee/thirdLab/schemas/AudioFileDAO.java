@@ -19,4 +19,12 @@ public class AudioFileDAO implements XMLDAO {
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "audioFile")
     List<AudioFile> audioFileList;
+
+    public void deleteAudioFile(String id) {
+        audioFileList.stream().filter(
+                audioFile -> audioFile.getId().equals(id)
+        ).findFirst().ifPresent(
+                audioFile -> audioFileList.remove(audioFile)
+        );
+    }
 }
