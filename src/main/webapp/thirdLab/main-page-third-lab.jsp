@@ -11,7 +11,7 @@
 <%@ page import="com.example.labee.thirdLab.schemas.AudioFile" %>
 <%@ page import="com.example.labee.thirdLab.model.helpers.DAOCreator" %>
 <%
-    AudioFileDAO audioFileDAO = DAOCreator.createAudiFileDAO();
+    AudioFileDAO audioFileDAO = new DAOCreator().createAudiFileDAO();
     List<AudioFile> audioFiles = audioFileDAO.getAudioFileList();
 %>
 <!DOCTYPE html>
