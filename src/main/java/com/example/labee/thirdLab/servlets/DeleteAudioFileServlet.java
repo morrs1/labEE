@@ -19,7 +19,7 @@ public class DeleteAudioFileServlet extends HttpServlet {
         audioFileDAO.deleteAudioFile(request.getParameter("id"));
         new DAOCreator().serialize(audioFileDAO);
         System.out.println("Удаление прошло успешно");
-        request.getRequestDispatcher("thirdLab/main-page-third-lab.jsp").forward(request, response);
+        response.sendRedirect("/third-lab-page");
 
     }
 }
