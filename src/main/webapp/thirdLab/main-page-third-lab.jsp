@@ -12,8 +12,13 @@
 <%@ page import="com.example.labee.thirdLab.model.helpers.DAOCreator" %>
 <%@ page import="java.util.ArrayList" %>
 <%
-    AudioFileDAO audioFileDAO = new DAOCreator().createAudiFileDAO();
-    List<AudioFile> audioFiles = audioFileDAO.getAudioFileList()!=null ? audioFileDAO.getAudioFileList() : new ArrayList<>();
+    // Получаем отфильтрованный список аудиофайлов из атрибута запроса
+    List<AudioFile> audioFiles = (List<AudioFile>) request.getAttribute("audioFiles");
+    if (audioFiles == null) {
+        // Если отфильтрованный список не доступен, получаем полный список аудиофайлов
+        AudioFileDAO audioFileDAO = new DAOCreator().createAudiFileDAO();
+        audioFiles = audioFileDAO.getAudioFileList() != null ? audioFileDAO.getAudioFileList() : new ArrayList<>();
+    }
 %>
 <!DOCTYPE html>
 <html lang="ru">
@@ -70,14 +75,6 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Здесь будет динамически генерироваться список аудио файлов -->
-<%--    <tr>--%>
-<%--        <td>Song Title 1</td>--%>
-<%--        <td>Artist 1</td>--%>
-<%--        <td>Genre 1</td>--%>
-<%--        <td><a href="delete?id=1">Удалить</a></td>--%>
-<%--    </tr>--%>
-    <!-- Добавьте больше строк по мере необходимости -->
     <%
         // Генерация строк таблицы для каждого аудио файла
         for (AudioFile audioFile : audioFiles) {
@@ -96,7 +93,7 @@
 
 <!-- Форма для добавления нового аудио файла -->
 <h2>Добавить Новый Аудио Файл</h2>
-<form action="addItem" method="post">
+<form action="add" method="GET">
     <input type="text" name="title" placeholder="Название" required>
     <input type="text" name="artist" placeholder="Исполнитель" required>
     <input type="text" name="genre" placeholder="Жанр" required>
