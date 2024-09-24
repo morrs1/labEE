@@ -18,7 +18,7 @@ public class AddAudioFileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var daoCreator = new DAOCreator();
         AudioFileDAO audioFileDAO= daoCreator.createAudiFileDAO();
-        var audioFile = new AudioFile(UUID.randomUUID().toString(), request.getParameter("title"), request.getParameter("artist"), request.getParameter("genre"));
+        var audioFile = new AudioFile(UUID.randomUUID().toString(), request.getParameter("title"), request.getParameter("artist"), request.getParameter("genre"), "");
         System.out.println(audioFile);
         audioFileDAO.getAudioFileList().add(audioFile);
         daoCreator.serialize(audioFileDAO);
