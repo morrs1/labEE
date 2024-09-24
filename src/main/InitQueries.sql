@@ -42,15 +42,20 @@ CREATE TABLE Warehouses
 CREATE TABLE INVENTORY
 (
     inventory_ID SERIAL PRIMARY KEY,
-    product_ID INT,
+    product_ID   INT,
     warehouse_ID INT,
-    quantity INT,
+    quantity     INT,
     CONSTRAINT fk_product
         FOREIGN KEY (product_ID)
-        REFERENCES Products (product_ID)
-        ON DELETE CASCADE,
+            REFERENCES Products (product_ID)
+            ON DELETE CASCADE,
     CONSTRAINT fk_warehouse
         FOREIGN KEY (warehouse_ID)
-        REFERENCES Warehouses (warehouse_ID)
-        ON DELETE CASCADE
+            REFERENCES Warehouses (warehouse_ID)
+            ON DELETE CASCADE
 );
+
+ALTER TABLE Products
+    ADD CONSTRAINT fk_category_id
+        FOREIGN KEY (category_ID)
+            REFERENCES Categories (category_ID);
