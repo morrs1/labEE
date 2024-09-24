@@ -82,6 +82,7 @@
         <th>Исполнитель</th>
         <th>Жанр</th>
         <th>Действия</th>
+        <th>Открыть</th>
     </tr>
     </thead>
     <tbody>
@@ -94,6 +95,7 @@
         <td><%= audioFile.getArtist() %></td>
         <td><%= audioFile.getGenre() %></td>
         <td><a href="delete?id=<%= audioFile.getId() %>">Удалить</a></td>
+        <td><a href="open?id=<%= audioFile.getId() %>">Открыть</a></td>
     </tr>
     <%
         }
