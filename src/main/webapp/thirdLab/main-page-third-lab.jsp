@@ -62,6 +62,16 @@
     <input type="text" name="genre" placeholder="Введите жанр">
     <input type="submit" value="Фильтровать">
 </form>
+<h2>Фильтр по имени</h2>
+<form action="filter-name" method="get">
+    <input type="text" name="name" placeholder="Введите имя">
+    <input type="submit" value="Фильтровать">
+</form>
+<h2>Фильтр по исполнителю</h2>
+<form action="filter-artist" method="get">
+    <input type="text" name="artist" placeholder="Введите исполнителя">
+    <input type="submit" value="Фильтровать">
+</form>
 
 <!-- Таблица для отображения аудио файлов -->
 <h2>Список Аудио Файлов</h2>
