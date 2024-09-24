@@ -16,6 +16,8 @@ public class AudioFile {
     private String artist;
     @JacksonXmlProperty(localName = "genre")
     private String genre;
+    @JacksonXmlProperty(localName = "path")
+    private String path;
 
     @Override
     public String toString() {

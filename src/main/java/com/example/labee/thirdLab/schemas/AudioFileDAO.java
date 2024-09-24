@@ -27,4 +27,13 @@ public class AudioFileDAO implements XMLDAO {
                 audioFile -> audioFileList.remove(audioFile)
         );
     }
+
+    public AudioFile getAudioFile(String id) {
+        for (AudioFile audioFile : audioFileList) {
+            if (audioFile.getId().equals(id)) {
+                return audioFile; // Возвращаем ссылку на найденный объект
+            }
+        }
+        return null; // Если объект не найден, возвращаем null
+    }
 }
