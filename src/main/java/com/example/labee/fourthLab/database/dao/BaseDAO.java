@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseDAO<T> {
@@ -16,7 +15,7 @@ public abstract class BaseDAO<T> {
         connection = ConnectionManager.get();
     }
 
-    protected void create(T entity) throws SQLException {
+    public void create(T entity) throws SQLException {
         String sql = getCreateQuery();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             setCreateParameters(statement, entity);
@@ -24,7 +23,7 @@ public abstract class BaseDAO<T> {
         }
     }
 
-    protected T read(int id) {
+    public T read(int id) {
         String sql = getReadQuery();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
@@ -38,7 +37,7 @@ public abstract class BaseDAO<T> {
         return null;
     }
 
-    protected List<T> readAll() throws SQLException {
+    public List<T> readAll() throws SQLException {
         String sql = getReadAllQuery();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet resultSet = statement.executeQuery();
