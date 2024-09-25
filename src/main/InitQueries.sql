@@ -59,3 +59,5 @@ ALTER TABLE Products
     ADD CONSTRAINT fk_category_id
         FOREIGN KEY (category_ID)
             REFERENCES Categories (category_ID);
+
+ALTER TABLE warehouses RENAME COLUMN warehouseLocation TO warehouse_location;
