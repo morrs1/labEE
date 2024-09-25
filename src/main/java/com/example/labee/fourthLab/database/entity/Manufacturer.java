@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class manufacture {
+public class Manufacturer {
     private int id;
     private String name;
     private String country;

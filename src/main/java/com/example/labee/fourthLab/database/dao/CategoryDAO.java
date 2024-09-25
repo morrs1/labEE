@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDao extends BaseDAO<Category> {
+public class CategoryDAO extends BaseDAO<Category> {
     @Override
     protected String getCreateQuery() {
         return "INSERT INTO categories (category_id, category_name, category_description) VALUES (?, ?, ?)";
