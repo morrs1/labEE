@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BaseDAO<T> {
     protected Connection connection;
@@ -36,6 +38,14 @@ public abstract class BaseDAO<T> {
         return null;
     }
 
+    protected List<T> readAll() throws SQLException {
+        String sql = getReadAllQuery();
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+            return mapRowToListOfEntity(resultSet);
+        }
+    }
+
     public void update(T entity) throws SQLException {
         String sql = getUpdateQuery();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -61,9 +71,13 @@ public abstract class BaseDAO<T> {
 
     protected abstract String getDeleteQuery();
 
+    protected abstract String getReadAllQuery();
+
     protected abstract void setCreateParameters(PreparedStatement statement, T entity) throws SQLException;
 
     protected abstract void setUpdateParameters(PreparedStatement statement, T entity) throws SQLException;
 
     protected abstract T mapRowToEntity(ResultSet resultSet) throws SQLException;
+
+    protected abstract List<T> mapRowToListOfEntity(ResultSet resultSet) throws SQLException;
 }
