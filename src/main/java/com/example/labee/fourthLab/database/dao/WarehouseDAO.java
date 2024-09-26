@@ -1,5 +1,6 @@
 package com.example.labee.fourthLab.database.dao;
 
+import com.example.labee.fourthLab.database.entity.Displayable;
 import com.example.labee.fourthLab.database.entity.Warehouse;
 
 import java.sql.PreparedStatement;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WarehouseDAO extends BaseDAO<Warehouse> {
+public class WarehouseDAO extends BaseDAO<Displayable> {
     @Override
     protected String getCreateQuery() {
         return "INSERT INTO warehouses (warehouse_id, warehouse_name, warehouse_location) VALUES(?,?,?)";
@@ -35,21 +36,21 @@ public class WarehouseDAO extends BaseDAO<Warehouse> {
     }
 
     @Override
-    protected void setCreateParameters(PreparedStatement statement, Warehouse entity) throws SQLException {
-        statement.setInt(1, entity.getId());
-        statement.setString(2, entity.getName());
-        statement.setString(3, entity.getLocation());
+    protected void setCreateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setInt(1, ((Warehouse)entity).getId());
+        statement.setString(2, ((Warehouse)entity).getName());
+        statement.setString(3, ((Warehouse)entity).getLocation());
     }
 
     @Override
-    protected void setUpdateParameters(PreparedStatement statement, Warehouse entity) throws SQLException {
-        statement.setString(1, entity.getName());
-        statement.setString(2, entity.getLocation());
-        statement.setInt(3, entity.getId());
+    protected void setUpdateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setString(1, ((Warehouse)entity).getName());
+        statement.setString(2, ((Warehouse)entity).getLocation());
+        statement.setInt(3, ((Warehouse)entity).getId());
     }
 
     @Override
-    protected Warehouse mapRowToEntity(ResultSet resultSet) throws SQLException {
+    protected Displayable mapRowToEntity(ResultSet resultSet) throws SQLException {
 
         return new Warehouse(
                 resultSet.getInt(1),
@@ -59,9 +60,9 @@ public class WarehouseDAO extends BaseDAO<Warehouse> {
     }
 
     @Override
-    protected List<Warehouse> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
+    protected List<Displayable> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
 
-        ArrayList<Warehouse> warehouses = new ArrayList<>();
+        ArrayList<Displayable> warehouses = new ArrayList<>();
         while (resultSet.next()) {
             warehouses.add(mapRowToEntity(resultSet));
         }

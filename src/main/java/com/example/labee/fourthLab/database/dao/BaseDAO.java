@@ -1,5 +1,6 @@
 package com.example.labee.fourthLab.database.dao;
 
+import com.example.labee.fourthLab.database.entity.Displayable;
 import com.example.labee.fourthLab.model.util.ConnectionManager;
 
 import java.sql.Connection;
@@ -23,7 +24,7 @@ public abstract class BaseDAO<T> {
         }
     }
 
-    public T read(int id) {
+    public Displayable read(int id) {
         String sql = getReadQuery();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
@@ -37,7 +38,7 @@ public abstract class BaseDAO<T> {
         return null;
     }
 
-    public List<T> readAll() throws SQLException {
+    public List<Displayable> readAll() throws SQLException {
         String sql = getReadAllQuery();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet resultSet = statement.executeQuery();
@@ -76,7 +77,7 @@ public abstract class BaseDAO<T> {
 
     protected abstract void setUpdateParameters(PreparedStatement statement, T entity) throws SQLException;
 
-    protected abstract T mapRowToEntity(ResultSet resultSet) throws SQLException;
+    protected abstract Displayable mapRowToEntity(ResultSet resultSet) throws SQLException;
 
-    protected abstract List<T> mapRowToListOfEntity(ResultSet resultSet) throws SQLException;
+    protected abstract List<Displayable> mapRowToListOfEntity(ResultSet resultSet) throws SQLException;
 }

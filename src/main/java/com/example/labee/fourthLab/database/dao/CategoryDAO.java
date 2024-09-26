@@ -1,6 +1,7 @@
 package com.example.labee.fourthLab.database.dao;
 
 import com.example.labee.fourthLab.database.entity.Category;
+import com.example.labee.fourthLab.database.entity.Displayable;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoryDAO extends BaseDAO<Category> {
+public class CategoryDAO extends BaseDAO<Displayable> {
     @Override
     protected String getCreateQuery() {
         return "INSERT INTO categories (category_id, category_name, category_description) VALUES (?, ?, ?)";
@@ -35,17 +36,17 @@ public class CategoryDAO extends BaseDAO<Category> {
     }
 
     @Override
-    protected void setCreateParameters(PreparedStatement statement, Category entity) throws SQLException {
-        statement.setInt(1, entity.getId());
-        statement.setString(2, entity.getName());
-        statement.setString(3, entity.getDescription());
+    protected void setCreateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setInt(1, ((Category)entity).getId());
+        statement.setString(2, ((Category) entity).getName());
+        statement.setString(3, ((Category)entity).getDescription());
     }
 
     @Override
-    protected void setUpdateParameters(PreparedStatement statement, Category entity) throws SQLException {
-        statement.setInt(3, entity.getId());
-        statement.setString(1, entity.getName());
-        statement.setString(2, entity.getDescription());
+    protected void setUpdateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setInt(3, ((Category)entity).getId());
+        statement.setString(1, ((Category)entity).getName());
+        statement.setString(2, ((Category)entity).getDescription());
     }
 
     @Override
@@ -57,8 +58,8 @@ public class CategoryDAO extends BaseDAO<Category> {
 
 
     @Override
-    protected List<Category> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
-        ArrayList<Category> categories = new ArrayList<>();
+    protected List<Displayable> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
+        ArrayList<Displayable> categories = new ArrayList<>();
         while (resultSet.next()) {
             categories.add(mapRowToEntity(resultSet));
         }

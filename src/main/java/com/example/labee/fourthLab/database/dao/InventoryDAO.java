@@ -1,5 +1,6 @@
 package com.example.labee.fourthLab.database.dao;
 
+import com.example.labee.fourthLab.database.entity.Displayable;
 import com.example.labee.fourthLab.database.entity.Inventory;
 
 import java.sql.PreparedStatement;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InventoryDAO extends BaseDAO<Inventory> {
+public class InventoryDAO extends BaseDAO<Displayable> {
     @Override
     protected String getCreateQuery() {
         return "INSERT INTO inventory (inventory_id, product_id, warehouse_id, quantity) VALUES (?,?,?,?)";
@@ -35,23 +36,23 @@ public class InventoryDAO extends BaseDAO<Inventory> {
     }
 
     @Override
-    protected void setCreateParameters(PreparedStatement statement, Inventory entity) throws SQLException {
-        statement.setInt(1, entity.getInventoryId());
-        statement.setInt(2, entity.getProductId());
-        statement.setInt(3, entity.getWarehouseId());
-        statement.setInt(4, entity.getQuantity());
+    protected void setCreateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setInt(1, ((Inventory) entity).getInventoryId());
+        statement.setInt(2, ((Inventory) entity).getProductId());
+        statement.setInt(3, ((Inventory) entity).getWarehouseId());
+        statement.setInt(4, ((Inventory) entity).getQuantity());
     }
 
     @Override
-    protected void setUpdateParameters(PreparedStatement statement, Inventory entity) throws SQLException {
-        statement.setInt(1, entity.getProductId());
-        statement.setInt(2, entity.getWarehouseId());
-        statement.setInt(3, entity.getQuantity());
-        statement.setInt(4, entity.getInventoryId());
+    protected void setUpdateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setInt(1, ((Inventory) entity).getProductId());
+        statement.setInt(2, ((Inventory) entity).getWarehouseId());
+        statement.setInt(3, ((Inventory) entity).getQuantity());
+        statement.setInt(4, ((Inventory) entity).getInventoryId());
     }
 
     @Override
-    protected Inventory mapRowToEntity(ResultSet resultSet) throws SQLException {
+    protected Displayable mapRowToEntity(ResultSet resultSet) throws SQLException {
         return new Inventory(
                 resultSet.getInt(1),
                 resultSet.getInt(2),
@@ -61,8 +62,8 @@ public class InventoryDAO extends BaseDAO<Inventory> {
     }
 
     @Override
-    protected List<Inventory> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
-        ArrayList<Inventory> inventory = new ArrayList<>();
+    protected List<Displayable> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
+        ArrayList<Displayable> inventory = new ArrayList<>();
         while(resultSet.next()) {
             inventory.add(mapRowToEntity(resultSet));
         }

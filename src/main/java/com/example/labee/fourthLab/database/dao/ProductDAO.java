@@ -1,5 +1,6 @@
 package com.example.labee.fourthLab.database.dao;
 
+import com.example.labee.fourthLab.database.entity.Displayable;
 import com.example.labee.fourthLab.database.entity.Product;
 
 import java.sql.PreparedStatement;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDAO extends BaseDAO<Product> {
+public class ProductDAO extends BaseDAO<Displayable> {
     @Override
     protected String getCreateQuery() {
         return "INSERT INTO products " +
@@ -38,27 +39,27 @@ public class ProductDAO extends BaseDAO<Product> {
     }
 
     @Override
-    protected void setCreateParameters(PreparedStatement statement, Product entity) throws SQLException {
-        statement.setInt(1, entity.getProductId());
-        statement.setString(2, entity.getName());
-        statement.setString(3, entity.getDescription());
-        statement.setDouble(4, entity.getPrice());
-        statement.setInt(5, entity.getCategoryId());
-        statement.setInt(6, entity.getManufacturerId());
+    protected void setCreateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setInt(1, ((Product)entity).getProductId());
+        statement.setString(2, ((Product)entity).getName());
+        statement.setString(3, ((Product)entity).getDescription());
+        statement.setDouble(4, ((Product)entity).getPrice());
+        statement.setInt(5, ((Product)entity).getCategoryId());
+        statement.setInt(6, ((Product)entity).getManufacturerId());
     }
 
     @Override
-    protected void setUpdateParameters(PreparedStatement statement, Product entity) throws SQLException {
-        statement.setInt(6, entity.getProductId());
-        statement.setString(1, entity.getName());
-        statement.setString(2, entity.getDescription());
-        statement.setDouble(3, entity.getPrice());
-        statement.setInt(4, entity.getCategoryId());
-        statement.setInt(5, entity.getManufacturerId());
+    protected void setUpdateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
+        statement.setInt(6, ((Product)entity).getProductId());
+        statement.setString(1, ((Product)entity).getName());
+        statement.setString(2, ((Product)entity).getDescription());
+        statement.setDouble(3, ((Product)entity).getPrice());
+        statement.setInt(4, ((Product)entity).getCategoryId());
+        statement.setInt(5, ((Product)entity).getManufacturerId());
     }
 
     @Override
-    protected Product mapRowToEntity(ResultSet resultSet) throws SQLException {
+    protected Displayable mapRowToEntity(ResultSet resultSet) throws SQLException {
         return new Product(
                 resultSet.getInt(1),
                 resultSet.getString(2),
@@ -70,8 +71,8 @@ public class ProductDAO extends BaseDAO<Product> {
     }
 
     @Override
-    protected List<Product> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
-        ArrayList<Product> products = new ArrayList<>();
+    protected List<Displayable> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
+        ArrayList<Displayable> products = new ArrayList<>();
         while (resultSet.next()) {
             products.add(mapRowToEntity(resultSet));
         }
