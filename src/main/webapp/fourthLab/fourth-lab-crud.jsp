@@ -19,12 +19,14 @@
 <%@ page import="com.example.labee.fourthLab.database.entity.Displayable" %>
 <%@ page import="com.example.labee.fourthLab.database.dao.ManufacturerDAO" %>
 <%@ page import="com.example.labee.fourthLab.database.entity.Manufacturer" %>
+<%@ page import="com.example.labee.fourthLab.model.core.DAOFactory" %>
 <%
     String typeOfTable = request.getParameter("typeOfTable");
-    ManufacturerDAO dao = new ManufacturerDAO();
-    var itemsOfTable = new ArrayList<Manufacturer>();
+    BaseDAO<Displayable> dao = DAOFactory.getDAO(typeOfTable);
+    List<Displayable> itemsOfTable;
+
     try {
-        itemsOfTable = (ArrayList<Manufacturer>) dao.readAll();
+        itemsOfTable = dao.readAll();
     } catch (SQLException e) {
         throw new RuntimeException(e);
     }
