@@ -20,7 +20,7 @@ public class FourthLabMainServlet extends HttpServlet {
         out.println("<title>Fourth Lab</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>Fourth Lab</h1>");
+        out.println(req.getParameter("typeOfTable"));
         out.println("</body>");
         out.println("</html>");
     }
