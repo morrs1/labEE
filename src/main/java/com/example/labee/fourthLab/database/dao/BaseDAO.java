@@ -22,6 +22,7 @@ public abstract class BaseDAO<T> {
             setCreateParameters(statement, entity);
             statement.executeUpdate();
         }
+        close(connection);
     }
 
     public Displayable read(int id) {
@@ -30,11 +31,13 @@ public abstract class BaseDAO<T> {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+               close(connection);
                 return mapRowToEntity(resultSet);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        close(connection);
         return null;
     }
 
@@ -42,6 +45,7 @@ public abstract class BaseDAO<T> {
         String sql = getReadAllQuery();
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             ResultSet resultSet = statement.executeQuery();
+            close(connection);
             return mapRowToListOfEntity(resultSet);
         }
     }
@@ -51,6 +55,7 @@ public abstract class BaseDAO<T> {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             setUpdateParameters(statement, entity);
             statement.executeUpdate();
+            close(connection);
         }
     }
 
@@ -60,9 +65,13 @@ public abstract class BaseDAO<T> {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             statement.executeUpdate();
+            close(connection);
         }
     }
 
+    private void close(Connection connection) {
+        ConnectionManager.release(connection);
+    }
     protected abstract String getCreateQuery();
 
     protected abstract String getReadQuery();

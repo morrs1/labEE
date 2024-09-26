@@ -56,4 +56,7 @@ public class ConnectionManager {
             throw new RuntimeException(e);
         }
     }
+    public static void release(Connection connection) {
+        pool.add(connection);
+    }
 }
