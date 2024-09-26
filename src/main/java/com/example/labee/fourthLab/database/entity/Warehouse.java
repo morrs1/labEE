@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
+
 
 @AllArgsConstructor
 @Getter
@@ -17,7 +18,11 @@ public class Warehouse implements Displayable {
     private String location;
 
     @Override
-    public Map<String, String> getDisplayInfo() {
-        return Map.of("ID", String.valueOf(id), "Название", name, "Местонахождение", location);
+    public LinkedHashMap<String, String> getDisplayInfo() {
+        var map = new LinkedHashMap<String, String>();
+        map.put("ID", String.valueOf(id));
+        map.put("Название", name);
+        map.put("Местонахождение", location);
+        return map;
     }
 }

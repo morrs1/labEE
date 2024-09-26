@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 @Getter
 @Setter
@@ -18,12 +18,13 @@ public class Inventory implements Displayable {
     private int quantity;
 
     @Override
-    public Map<String, String> getDisplayInfo() {
-        return Map.of(
-                "ID", String.valueOf(inventoryId),
-                "ID товара", String.valueOf(productId),
-                "ID склада", String.valueOf(warehouseId),
-                "Колчество", String.valueOf(quantity)
-        );
+    public LinkedHashMap<String, String> getDisplayInfo() {
+        var map = new LinkedHashMap<String, String>();
+        map.put("ID", String.valueOf(inventoryId));
+        map.put("ID товара", String.valueOf(productId));
+        map.put("ID склада", String.valueOf(warehouseId));
+        map.put("Количество", String.valueOf(quantity));
+
+        return map;
     }
 }

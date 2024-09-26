@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
 
 @Getter
 @Setter
@@ -17,7 +17,12 @@ public class Category implements Displayable {
     private String description;
 
     @Override
-    public Map<String, String> getDisplayInfo() {
-        return Map.of("ID", String.valueOf(id), "Название", name, "Описание", description);
+    public LinkedHashMap<String, String> getDisplayInfo() {
+        var map = new LinkedHashMap<String, String>();
+        map.put("ID", String.valueOf(id));
+        map.put("Название", name);
+        map.put("Описание", description);
+
+        return map;
     }
 }

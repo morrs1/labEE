@@ -1,7 +1,8 @@
 package com.example.labee.fourthLab.database.entity;
 
-import java.util.Map;
+import java.util.LinkedHashMap;
+
 
 public interface Displayable {
-    Map<String, String> getDisplayInfo();
+    LinkedHashMap<String, String> getDisplayInfo();
 }
