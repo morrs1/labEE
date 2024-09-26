@@ -73,15 +73,7 @@ public class ProductDAO extends BaseDAO<Product> {
     protected List<Product> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
         ArrayList<Product> products = new ArrayList<>();
         while (resultSet.next()) {
-            Product product = new Product(
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getDouble(4),
-                    resultSet.getInt(5),
-                    resultSet.getInt(6)
-            );
-            products.add(product);
+            products.add(mapRowToEntity(resultSet));
         }
         return products;
     }

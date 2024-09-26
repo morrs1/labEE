@@ -61,12 +61,7 @@ public class ManufacturerDAO extends BaseDAO<Manufacturer> {
     protected List<Manufacturer> mapRowToListOfEntity(ResultSet resultSet) throws SQLException {
         ArrayList<Manufacturer> manufacturers = new ArrayList<>();
         while (resultSet.next()) {
-           Manufacturer manufacturer = new Manufacturer(
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3)
-            );
-            manufacturers.add(manufacturer);
+            manufacturers.add(mapRowToEntity(resultSet));
         }
         return manufacturers;
     }
