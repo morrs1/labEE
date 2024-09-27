@@ -1,9 +1,6 @@
 package com.example.labee.fourthLab.database.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.LinkedHashMap;
 
@@ -11,6 +8,7 @@ import java.util.LinkedHashMap;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class Manufacturer implements Displayable {
     private int id;
     private String name;
