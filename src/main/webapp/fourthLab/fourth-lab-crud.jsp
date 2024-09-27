@@ -7,18 +7,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.example.labee.thirdLab.schemas.AudioFileDAO" %>
-<%@ page import="com.example.labee.thirdLab.schemas.AudioFile" %>
-<%@ page import="com.example.labee.thirdLab.model.helpers.DAOCreator" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.labee.fourthLab.database.dao.ProductDAO" %>
 <%@ page import="com.example.labee.fourthLab.database.dao.BaseDAO" %>
-<%@ page import="com.example.labee.fourthLab.database.entity.Product" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="com.example.labee.fourthLab.database.entity.Displayable" %>
-<%@ page import="com.example.labee.fourthLab.database.dao.ManufacturerDAO" %>
-<%@ page import="com.example.labee.fourthLab.database.entity.Manufacturer" %>
 <%@ page import="com.example.labee.fourthLab.model.core.DAOFactory" %>
 <%
     String typeOfTable = request.getParameter("typeOfTable");
