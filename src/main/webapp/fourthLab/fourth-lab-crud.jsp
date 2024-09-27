@@ -58,10 +58,13 @@
         form {
             margin-top: 20px;
         }
+        button{
+
+        }
     </style>
 </head>
 <body>
-
+<a href="/fourth-lab"><button>Назад</button></a>
 <h1>CRUD - <%=typeOfTable%>
 </h1>
 
