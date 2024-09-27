@@ -113,11 +113,19 @@
 </table>
 
 <!-- Форма для добавления нового аудио файла -->
-<h2>Добавить Новый Аудио Файл</h2>
+<h2>Добавить новую запись</h2>
 <form action="add" method="GET">
-    <input type="text" name="title" placeholder="Название" required>
-    <input type="text" name="artist" placeholder="Исполнитель" required>
-    <input type="text" name="genre" placeholder="Жанр" required>
+    <%
+        // Получаем заголовки из первого элемента списка
+        if (!itemsOfTable.isEmpty()) {
+            Map<String, String> firstItemData = itemsOfTable.get(0).getDisplayInfo();
+            for (String header : firstItemData.keySet()) {
+    %>
+    <input type="text" name=<%=header%> placeholder=<%=header%> required>
+    <%
+            }
+        }
+    %>
     <input type="submit" value="Добавить">
 </form>
 
