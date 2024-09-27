@@ -8,6 +8,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 
 @WebServlet("/delete-note")
@@ -15,12 +18,20 @@ public class DeleteNoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            System.out.println(Integer.parseInt(request.getParameter("id")));
             DAOFactory.getDAO(request.getParameter("typeOfTable"))
                     .delete(Integer.parseInt(request.getParameter("id")));
+            System.out.println(Integer.parseInt(request.getParameter("id")));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        request.getRequestDispatcher("fourthLab/fourth-lab-index.html").include(request, response);
-//        response.sendRedirect("fourthLab/fourth-lab-crud.jsp");
+
+
+        try {
+            String typeOfTable = URLEncoder.encode(request.getParameter("typeOfTable"), StandardCharsets.UTF_8);
+            response.sendRedirect("main-page-fourth-lab?typeOfTable=" + typeOfTable);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace(); // Обработка исключения
+        }
     }
 }
