@@ -106,7 +106,8 @@
 
 <!-- Форма для добавления нового аудио файла -->
 <h2>Добавить новую запись</h2>
-<form action="add" method="GET">
+<form action="add-note" method="GET">
+
     <%
         // Получаем заголовки из первого элемента списка
         if (!itemsOfTable.isEmpty()) {
@@ -118,11 +119,12 @@
             }
         }
     %>
+    <input type="hidden" name="typeOfTable" value=<%=typeOfTable%>>
     <input type="submit" value="Добавить">
 </form>
 
 <h2>Изменить существующую запись</h2>
-<form action="add" method="GET">
+<form action="update-note" method="GET">
     <%
         // Получаем заголовки из первого элемента списка
         if (!itemsOfTable.isEmpty()) {
@@ -134,12 +136,14 @@
             }
         }
     %>
+    <input type="hidden" name="typeOfTable" value=<%=typeOfTable%>>
     <input type="submit" value="Изменить">
 </form>
 
-<form action="delete" method="GET">
+<form action="delete-note" method="GET">
     <input type = "text" name="id" placeholder="ID для удаления" required>
     <input type="submit" value="Удалить">
+    <input type="hidden" name="typeOfTable" value=<%=typeOfTable%>>
 </form>
 
 </body>
