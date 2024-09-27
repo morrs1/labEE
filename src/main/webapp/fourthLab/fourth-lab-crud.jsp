@@ -121,5 +121,26 @@
     <input type="submit" value="Добавить">
 </form>
 
+<h2>Изменить существующую запись</h2>
+<form action="add" method="GET">
+    <%
+        // Получаем заголовки из первого элемента списка
+        if (!itemsOfTable.isEmpty()) {
+            Map<String, String> firstItemData = itemsOfTable.get(0).getDisplayInfo();
+            for (String header : firstItemData.keySet()) {
+    %>
+    <input type="text" name=<%=header%> placeholder=<%=header%> required>
+    <%
+            }
+        }
+    %>
+    <input type="submit" value="Изменить">
+</form>
+
+<form action="delete" method="GET">
+    <input type = "text" name="id" placeholder="ID для удаления" required>
+    <input type="submit" value="Удалить">
+</form>
+
 </body>
 </html>
