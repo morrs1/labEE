@@ -23,8 +23,8 @@ public class EntityFactory {
                         request.getParameter("Название"),
                         request.getParameter("Описание"),
                         Double.parseDouble(request.getParameter("Цена")),
-                        Integer.parseInt(request.getParameter("ID категории")),
-                        Integer.parseInt(request.getParameter("ID производителя"))
+                        Integer.parseInt(request.getParameter("ID_категории")),
+                        Integer.parseInt(request.getParameter("ID_производителя"))
                 );
             case "Категории":
                 return new Category(
@@ -35,8 +35,8 @@ public class EntityFactory {
             case "Инвентарь":
                 return new Inventory(
                         Integer.parseInt(request.getParameter("ID")),
-                        Integer.parseInt(request.getParameter("ID товара")),
-                        Integer.parseInt(request.getParameter("ID склада")),
+                        Integer.parseInt(request.getParameter("ID_товара")),
+                        Integer.parseInt(request.getParameter("ID_склада")),
                         Integer.parseInt(request.getParameter("Количество"))
                 );
             case "Склады":

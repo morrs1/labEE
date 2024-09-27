@@ -19,8 +19,8 @@ public class Inventory implements Displayable {
     public LinkedHashMap<String, String> getDisplayInfo() {
         var map = new LinkedHashMap<String, String>();
         map.put("ID", String.valueOf(inventoryId));
-        map.put("ID товара", String.valueOf(productId));
-        map.put("ID склада", String.valueOf(warehouseId));
+        map.put("ID_товара", String.valueOf(productId));
+        map.put("ID_склада", String.valueOf(warehouseId));
         map.put("Количество", String.valueOf(quantity));
 
         return map;

@@ -25,8 +25,8 @@ public class Product implements Displayable {
         map.put("Название", name);
         map.put("Описание", description);
         map.put("Цена", String.valueOf(price));
-        map.put("ID категории", String.valueOf(categoryId));
-        map.put("ID производителя", String.valueOf(manufacturerId));
+        map.put("ID_категории", String.valueOf(categoryId));
+        map.put("ID_производителя", String.valueOf(manufacturerId));
         return map;
     }
 }
