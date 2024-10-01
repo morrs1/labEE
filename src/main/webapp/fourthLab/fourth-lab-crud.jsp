@@ -58,13 +58,16 @@
         form {
             margin-top: 20px;
         }
-        button{
+
+        button {
 
         }
     </style>
 </head>
 <body>
-<a href="/fourth-lab"><button>Назад</button></a>
+<a href="/fourth-lab">
+    <button>Назад</button>
+</a>
 <h1>CRUD - <%=typeOfTable%>
 </h1>
 
@@ -80,7 +83,8 @@
                 Map<String, String> firstItemData = itemsOfTable.get(0).getDisplayInfo();
                 for (String header : firstItemData.keySet()) {
         %>
-        <th><%= header %></th>
+        <th><%= header %>
+        </th>
         <%
                 }
             }
@@ -144,10 +148,20 @@
 </form>
 
 <form action="delete-note" method="GET">
-    <input type = "text" name="id" placeholder="ID для удаления" required>
+    <input type="text" name="id" placeholder="ID для удаления" required>
     <input type="submit" value="Удалить">
     <input type="hidden" name="typeOfTable" value=<%=typeOfTable%>>
 </form>
+
+<%
+    if (typeOfTable.equals("Товары")) {
+%>
+<form action="filter-products" method="GET">
+    <input type="submit" value="Отфильтровать ширпотреб">
+</form>
+<%
+    }
+%>
 
 </body>
 </html>
