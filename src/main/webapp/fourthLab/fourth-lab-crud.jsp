@@ -12,6 +12,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="com.example.labee.fourthLab.database.entity.Displayable" %>
 <%@ page import="com.example.labee.fourthLab.model.core.DAOFactory" %>
+<%@ page import="com.example.labee.fourthLab.database.entity.Product" %>
 <%
     String typeOfTable = request.getParameter("typeOfTable");
     BaseDAO<Displayable> dao = DAOFactory.getDAO(typeOfTable);
@@ -158,7 +159,49 @@
 %>
 <form action="filter-products" method="GET">
     <input type="submit" value="Отфильтровать ширпотреб">
+    <input type="hidden" name="typeOfTable" value=<%=typeOfTable%>>
 </form>
+<%
+    }
+%>
+
+<%
+    List<Product> filteredProducts = (List<Product>) request.getAttribute("filteredProducts");
+    if (filteredProducts != null && !filteredProducts.isEmpty()) {
+%>
+<h2>Отфильтрованные товары</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Описание</th>
+        <th>Цена</th>
+        <th>Категория ID</th>
+        <th>Производитель ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    <%
+        for (Product product : filteredProducts) {
+    %>
+    <tr>
+        <td><%= product.getProductId() %></td>
+        <td><%= product.getName() %></td>
+        <td><%= product.getDescription() %></td>
+        <td><%= product.getPrice() %></td>
+        <td><%= product.getCategoryId() %></td>
+        <td><%= product.getManufacturerId() %></td>
+    </tr>
+    <%
+        }
+    %>
+    </tbody>
+</table>
+<%
+} else {
+%>
+<p>Нет отфильтрованных товаров.</p>
 <%
     }
 %>

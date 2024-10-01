@@ -40,22 +40,22 @@ public class ProductDAO extends BaseDAO<Displayable> {
 
     @Override
     protected void setCreateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
-        statement.setInt(1, ((Product)entity).getProductId());
-        statement.setString(2, ((Product)entity).getName());
-        statement.setString(3, ((Product)entity).getDescription());
-        statement.setDouble(4, ((Product)entity).getPrice());
-        statement.setInt(5, ((Product)entity).getCategoryId());
-        statement.setInt(6, ((Product)entity).getManufacturerId());
+        statement.setInt(1, ((Product) entity).getProductId());
+        statement.setString(2, ((Product) entity).getName());
+        statement.setString(3, ((Product) entity).getDescription());
+        statement.setDouble(4, ((Product) entity).getPrice());
+        statement.setInt(5, ((Product) entity).getCategoryId());
+        statement.setInt(6, ((Product) entity).getManufacturerId());
     }
 
     @Override
     protected void setUpdateParameters(PreparedStatement statement, Displayable entity) throws SQLException {
-        statement.setInt(6, ((Product)entity).getProductId());
-        statement.setString(1, ((Product)entity).getName());
-        statement.setString(2, ((Product)entity).getDescription());
-        statement.setDouble(3, ((Product)entity).getPrice());
-        statement.setInt(4, ((Product)entity).getCategoryId());
-        statement.setInt(5, ((Product)entity).getManufacturerId());
+        statement.setInt(6, ((Product) entity).getProductId());
+        statement.setString(1, ((Product) entity).getName());
+        statement.setString(2, ((Product) entity).getDescription());
+        statement.setDouble(3, ((Product) entity).getPrice());
+        statement.setInt(4, ((Product) entity).getCategoryId());
+        statement.setInt(5, ((Product) entity).getManufacturerId());
     }
 
     @Override
@@ -78,4 +78,21 @@ public class ProductDAO extends BaseDAO<Displayable> {
         }
         return products;
     }
+
+    public List<Displayable> filter() {
+        String sql = "SELECT * " +
+                "FROM products p " +
+                "JOIN manufacturers m ON p.manufacturer_id = m.manufacturer_id " +
+                "WHERE p.price < 5000 AND m.manufacturer_country = 'China';";
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            System.out.println(mapRowToListOfEntity(statement.executeQuery()));
+            close(connection);
+            return mapRowToListOfEntity(statement.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

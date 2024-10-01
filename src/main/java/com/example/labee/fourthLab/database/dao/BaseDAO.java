@@ -69,7 +69,7 @@ public abstract class BaseDAO<T> {
         }
     }
 
-    private void close(Connection connection) {
+    void close(Connection connection) {
         ConnectionManager.release(connection);
     }
     protected abstract String getCreateQuery();
